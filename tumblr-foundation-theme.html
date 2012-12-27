@@ -6,8 +6,8 @@
 <!--[if IE 8]>    <html class="no-js lt-ie9 tumblr-foundation" lang="en"> <![endif]-->
 <!--[if gt IE 8]><!-->
 <html lang="en" class="tumblr-foundation">
-	<!--<![endif]-->
-	<head>
+    <!--<![endif]-->
+    <head>
 		<meta charset="utf-8" />
 
 		<!-- Set the viewport width to device width for mobile -->
@@ -15,6 +15,7 @@
 
 		<!-- Included CSS Files -->
 		<link rel="stylesheet" href="https://dl.dropbox.com/u/11875139/foundation/stylesheets/foundation.min.css" />
+				<link rel="stylesheet" href="https://dl.dropbox.com/u/11875139/foundation/stylesheets/app.css" />
 
 		<!-- IE Fix for HTML5 Tags -->
 		<!--[if lt IE 9]>
@@ -245,8 +246,7 @@
 		</script>
 	</head>
 	<body>
-		<!-- ZURBar -->
-		<nav class="top-bar contain-to-grid">
+		<nav class="top-bar fixed">
 			<ul>
 				<li class="name" onclick="void(0);">
 					<span><a href="http://foundation.zurb.com">Foundation</a> <a href="#" class="toggle-nav"></a></span>
@@ -725,44 +725,33 @@
 				{/block:IfShowBlogsIFollow}
 			</div>
 		</div>
-		<div class="footer bF lF tF" id="page-footer">
-			<div class="content">
-				<ul class="actions nav">
-					<li class="feed">
-						<a href="{RSS}" title="RSS Feed">RSS Feed</a>
-					</li>
-					{block:AskEnabled}
-					<li class="ask">
-						<a href="/ask" title="{AskLabel}">{AskLabel}</a>
-					</li>
-					{/block:AskEnabled}
-					{block:SubmissionsEnabled}
-					<li class="submit">
-						<a href="/submit" title="{SubmitLabel}">{SubmitLabel}</a>
-					</li>
-					{/block:SubmissionsEnabled}
-				</ul>
-				{block:Pagination}
-				<ul class="pages nav">
-					<li class="previous">
-						<a{block:PreviousPage} href="{PreviousPage}" title="Previous Page"{/block:PreviousPage} >
-							Previous Page</a>
-					</li>
-					<li class="next">
-						<a{block:NextPage} href="{NextPage}" title="Next Page"{/block:NextPage} >
-							Next Page</a>
-					</li>
-				</ul>
-				{/block:Pagination}
-				<div class="theme">
-					<a href="http://singleatheme.tumblr.com" target="_blank">Single A Theme</a>
-					<span>::</span>
-					<a href="http://singleatheme.tumblr.com/versions">Version 1.3.1</a>
-					<span>::</span>
-					<a href="http://businessbullpen.tumblr.com" target="_blank">By Business Bullpen</a>
+        <div id="page-footer">
+			<div class="row">
+		  		<div class="twelve columns footer">
+					{block:Pagination}
+					<ul class="pages nav">
+						<li class="previous">
+							<a{block:PreviousPage} href="{PreviousPage}" title="Previous Page"{/block:PreviousPage} >
+								Previous Page</a>
+						</li>
+						<li class="next">
+							<a{block:NextPage} href="{NextPage}" title="Next Page"{/block:NextPage} >
+								Next Page</a>
+						</li>
+					</ul>
+					{/block:Pagination}
+					<div class="row">
+						<div class="six columns offset-by-six theme">
+							<a href="https://github.com/malavbhavsar/tumblr-foundation-theme" target="_blank">Tumblr Foundation Theme</a>
+							<span>::</span>
+							<a href="https://github.com/malavbhavsar/tumblr-foundation-theme" target="_blank">Version 0.0.1</a>
+							<span>::</span>
+							<a href="http://malavbhavsar.com" target="_blank">By Malav Bhavsar</a>
+						</div>
+					</div>
 				</div>
 			</div>
-		</div>
+        </div>
 		<script src="https://dl.dropbox.com/u/11875139/foundation/javascripts/foundation.min.js"></script>
 		<script src="https://dl.dropbox.com/u/11875139/foundation/javascripts/jquery.foundation.topbar.js"></script>
 		<script>
