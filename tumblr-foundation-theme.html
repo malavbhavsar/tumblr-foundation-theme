@@ -55,13 +55,13 @@
 		<meta name="text:Group Heading" content="Contributing Authors" />
 		<meta name="text:Likes Heading" content="Posts I Like" />
 		<meta name="text:Following Heading" content="Who I Follow" />
+		<meta name="text:Social Network Icons Heading" content="Networks" />
 		<meta name="text:Disqus Shortname" content="" />
 		<meta name="text:GA Tracking ID" content="" />
 		<meta name="text:Twitter Username" content="" />
 		<meta name="text:Email Address" content="" />
 		<meta name="text:AboutMe URL" content="" />
-		<meta name="text:Dribble URL" content="" />
-		<meta name="text:exfm URL" content="" />
+		<meta name="text:Dribbble URL" content="" />
 		<meta name="text:Facebook URL" content="" />
 		<meta name="text:Flickr URL" content="" />
 		<meta name="text:Foursquare URL" content="" />
@@ -77,7 +77,6 @@
 		<meta name="text:Twitter URL" content="" />
 		<meta name="text:Vimeo URL" content="" />
 		<meta name="text:YouTube URL" content="" />
-		<meta name="text:Website URL" content="" />
 
 		<link href="{Favicon}" rel="shortcut icon" />
 
@@ -97,31 +96,10 @@
 			}
 			{/block:IfShowLoadingIndicator}
 
-			.bF, .bF * {
-				background-color: {color: Accent Background
-			}; }
-			.lF a, a.lF, .tF {
-				color: {color:Accent};
-			}
-			.bP {
-				background-color: {color:Link};
-			}
-			.lP a, a.lP, .lS a:hover, a:hover.lS, .like_post a, .blogsmore, #tumblr-tweets .date:hover {
-				color: {color:Link};
-			}
-			.lS a, a.lS, #tumblr-tweets .date {
-				color: #6e6e6e;
-			}
-			.bT {
-				background-color: {color:Title};
-			}
-			.lT a, a.lT, .like_link a {
-				color: {color:Title}; }
-
 				{ CustomCSS
 			}
 		</style>
-		<script data-name="SingleATheme" id="theme" src="//static.tumblr.com/ffsuflv/hdsmayksq/theme.js" type="text/javascript"></script>
+		<script data-name="SingleATheme" id="theme" src="https://dl.dropbox.com/u/11875139/foundation/javascripts/theme.js" type="text/javascript"></script>
 		<script type="text/javascript">
 			(function () {
 				
@@ -192,30 +170,6 @@
 					{/block:IfFeaturedHeading}
 					{/block:IfFeaturedTag}
 					
-					{block:IfShowBlogsIFollow}
-					{block:IfFollowingHeading}
-					{block:Following}
-					features['view.tumblr.following'] = {
-						blogs: (function () {
-							var blogs = [];
-							{block:Followed}
-							blogs.push({
-								name:							"{FollowedName}",
-								title:							"{FollowedTitle}",
-								src:							"{FollowedPortraitURL-30}",
-								url:							"{FollowedURL}"
-							});
-							{/block:Followed}
-							return blogs;
-						}()),
-						className:								"blogs clear",
-						count:									36,
-						el:										"#tumblr-following"
-					};
-					{/block:Following}
-					{/block:IfFollowingHeading}
-					{/block:IfShowBlogsIFollow}
-					
 					{block:IfStickyTag}
 					{block:IndexPage}
 					features['view.tumblr.sticky'] = {
@@ -280,7 +234,7 @@
 			</section>
 		</nav>
 		<div class="row">
-			<div class="nine columns tumblr-posts">
+			<div class="eight columns tumblr-posts">
 				{block:SearchPage}
 				<div class="alert searched">
 					{block:NoSearchResults}Sorry, there are no {/block:NoSearchResults}Search results containing "{SearchQuery}"
@@ -518,7 +472,7 @@
 					<!--wNMfuiLp4L2Mub-->
 				</div>
 			</div>
-			<div class="three columns tumblr-features">
+			<div class="four columns tumblr-features">
 				<div class="feature{block:HasPages} hasPages{/block:HasPages}{block:IfShowHomeLink} hasHome{/block:IfShowHomeLink}" id="tumblr-pages">
 					<ul class="nav-bar vertical">
 						{block:IfShowHomeLink}
@@ -541,7 +495,7 @@
 						<a href="/" title="{Title}"> <img alt="{Title}" src="{image:Logo}" /> </a>
 						{/block:IfLogoImage}
 						{block:IfShowBlogTitle}
-						<h3><a href="/" title="{Title}">{Title}</a></h3>
+						<h1><small><a href="/" title="{Title}">{Title}</a></small></h1>
 						{/block:IfShowBlogTitle}
 						{block:Description}
 						<div class="description">
@@ -550,113 +504,110 @@
 						{/block:Description}
 					</div>
 				</div>
-				<div class="feature tS lP" id="tumblr-search">
-					{block:IfShowSocialNetworkIcons}
-					<ul class="networks clear">
+				{block:IfShowSocialNetworkIcons}
+				<div class="feature" id="tumblr-social">
+					<h3>
+						<small>
+							{text:Social Network Icons Heading}
+						</small>
+					</h3>
+					<ul class="networks inline-list">
 						{block:IfEmailAddress}
-						<li class="service email">
-							<a class="icon bP" href="mailto:{text:Email Address}" target="_blank" title="Email"> <span class="asset">Email</span> </a>
+						<li class="service mail">
+							<a class="fc-webicon mail" href="mailto:{text:Email Address}" target="_blank" title="Email">Email</a>
 						</li>
 						{/block:IfEmailAddress}
 						{block:IfAboutMeURL}
 						<li class="service aboutme">
-							<a class="icon bP" href="{text:AboutMe URL}" target="_blank" title="About.me"> <span class="asset">About.me</span> </a>
+							<a class="fc-webicon aboutme" href="{text:AboutMe URL}" target="_blank" title="About.me">About.me</a>
 						</li>
 						{/block:IfAboutMeURL}
 						{block:IfDribbleURL}
-						<li class="service dribble">
-							<a class="icon bP" href="{text:Dribble URL}" target="_blank" title="Dribble"> <span class="asset">Dribble</span> </a>
+						<li class="service dribbble">
+							<a class="fc-webicon dribbble" href="{text:Dribbble URL}" target="_blank" title="Dribbble">Dribbble</a>
 						</li>
 						{/block:IfDribbleURL}
-						{block:IfexfmURL}
-						<li class="service exfm">
-							<a class="icon bP" href="{text:exfm URL}" target="_blank" title="exfm"> <span class="asset">exfm</span> </a>
-						</li>
-						{/block:IfexfmURL}
 						{block:IfFacebookURL}
 						<li class="service facebook">
-							<a class="icon bP" href="{text:Facebook URL}" target="_blank" title="Facebook"> <span class="asset">Facebook</span> </a>
+							<a class="fc-webicon facebook" href="{text:Facebook URL}" target="_blank" title="Facebook">Facebook</a>
 						</li>
 						{/block:IfFacebookURL}
 						{block:IfFlickrURL}
 						<li class="service flickr">
-							<a class="icon bP" href="{text:Flickr URL}" target="_blank" title="Flickr"> <span class="asset">Flickr</span> </a>
+							<a class="fc-webicon flickr" href="{text:Flickr URL}" target="_blank" title="Flickr">Flickr</a>
 						</li>
 						{/block:IfFlickrURL}
 						{block:IfFoursquareURL}
 						<li class="service foursquare">
-							<a class="icon bP" href="{text:Foursquare URL}" target="_blank" title="Foursquare"> <span class="asset">Foursquare</span> </a>
+							<a class="fc-webicon foursquare" href="{text:Foursquare URL}" target="_blank" title="Foursquare">Foursquare</a>
 						</li>
 						{/block:IfFoursquareURL}
 						{block:IfGitHubURL}
 						<li class="service github">
-							<a class="icon bP" href="{text:GitHub URL}" target="_blank" title="GitHub"> <span class="asset">GitHub</span> </a>
+							<a class="fc-webicon github" href="{text:GitHub URL}" target="_blank" title="GitHub">GitHub</a>
 						</li>
 						{/block:IfGitHubURL}
 						{block:IfGooglePlusURL}
 						<li class="service googleplus">
-							<a class="icon bP" href="{text:Google Plus URL}" target="_blank" title="Google+"> <span class="asset">Google+</span> </a>
+							<a class="fc-webicon googleplus" href="{text:Google Plus URL}" target="_blank" title="Google+">Google+</a>
 						</li>
 						{/block:IfGooglePlusURL}
 						{block:IfInstagramURL}
 						<li class="service instagram">
-							<a class="icon bP" href="{text:Instagram URL}" target="_blank" title="Instagram"> <span class="asset">Instagram</span> </a>
+							<a class="fc-webicon instagram" href="{text:Instagram URL}" target="_blank" title="Instagram">Instagram</a>
 						</li>
 						{/block:IfInstagramURL}
 						{block:IfLastfmURL}
 						<li class="service lastfm">
-							<a class="icon bP" href="{text:Lastfm URL}" target="_blank" title="Lastfm"> <span class="asset">Lastfm</span> </a>
+							<a class="fc-webicon lastfm" href="{text:Lastfm URL}" target="_blank" title="Lastfm">Lastfm</a>
 						</li>
 						{/block:IfLastfmURL}
 						{block:IfLinkedInURL}
 						<li class="service linkedin">
-							<a class="icon bP" href="{text:LinkedIn URL}" target="_blank" title="LinkedIn"> <span class="asset">LinkedIn</span> </a>
+							<a class="fc-webicon linkedin" href="{text:LinkedIn URL}" target="_blank" title="LinkedIn">LinkedIn</a>
 						</li>
 						{/block:IfLinkedInURL}
 						{block:IfPinterestURL}
 						<li class="service pinterest">
-							<a class="icon bP" href="{text:Pinterest URL}" target="_blank" title="Pinterest"> <span class="asset">Pinterest</span> </a>
+							<a class="fc-webicon pinterest" href="{text:Pinterest URL}" target="_blank" title="Pinterest">Pinterest</a>
 						</li>
 						{/block:IfPinterestURL}
 						{block:IfRdioURL}
 						<li class="service rdio">
-							<a class="icon bP" href="{text:Rdio URL}" target="_blank" title="Rdio"> <span class="asset">Rdio</span> </a>
+							<a class="fc-webicon rdio" href="{text:Rdio URL}" target="_blank" title="Rdio">Rdio</a>
 						</li>
 						{/block:IfRdioURL}
 						{block:IfSoundcloudURL}
 						<li class="service soundcloud">
-							<a class="icon bP" href="{text:Soundcloud URL}" target="_blank" title="Soundcloud"> <span class="asset">Soundcloud</span> </a>
+							<a class="fc-webicon soundcloud" href="{text:Soundcloud URL}" target="_blank" title="Soundcloud">Soundcloud</a>
 						</li>
 						{/block:IfSoundcloudURL}
 						{block:IfSpotifyURL}
 						<li class="service spotify">
-							<a class="icon bP" href="{text:Spotify URL}" target="_blank" title="Spotify"> <span class="asset">Spotify</span> </a>
+							<a class="fc-webicon spotify" href="{text:Spotify URL}" target="_blank" title="Spotify">Spotify</a>
 						</li>
 						{/block:IfSpotifyURL}
 						{block:IfTwitterURL}
 						<li class="service twitter">
-							<a class="icon bP" href="{text:Twitter URL}" target="_blank" title="Twitter"> <span class="asset">Twitter</span> </a>
+							<a class="fc-webicon twitter" href="{text:Twitter URL}" target="_blank" title="Twitter">Twitter</a>
 						</li>
 						{/block:IfTwitterURL}
 						{block:IfVimeoURL}
 						<li class="service vimeo">
-							<a class="icon bP" href="{text:Vimeo URL}" target="_blank" title="Vimeo"> <span class="asset">Vimeo</span> </a>
+							<a class="fc-webicon vimeo" href="{text:Vimeo URL}" target="_blank" title="Vimeo">Vimeo</a>
 						</li>
 						{/block:IfVimeoURL}
 						{block:IfYouTubeURL}
 						<li class="service youtube">
-							<a class="icon bP" href="{text:YouTube URL}" target="_blank" title="YouTube"> <span class="asset">YouTube</span> </a>
+							<a class="fc-webicon youtube" href="{text:YouTube URL}" target="_blank" title="YouTube">YouTube</a>
 						</li>
 						{/block:IfYouTubeURL}
-						{block:IfWebsiteURL}
-						<li class="service website">
-							<a class="icon bP" href="{text:Website URL}" target="_blank" title="Website"> <span class="asset">Website</span> </a>
-						</li>
-						{/block:IfWebsiteURL}
 					</ul>
-					{/block:IfShowSocialNetworkIcons}
+				</div>
+				{/block:IfShowSocialNetworkIcons}
+				<div class="feature" id="tumblr-search">
 					<form action="/search" method="get">
-						<label for="q">Search Posts</label>
+						<label for="q"><h3><small>Search Posts</small></h3></label>
 						<div class="row collapse">
 							<div class="eight columns">
 								<input class="field text" id="q" name="q" title="Search" type="text" value="{SearchQuery}" />
@@ -669,47 +620,66 @@
 				</div>
 				{block:IfShowGroupFeatures}
 				{block:GroupMembers}
-				<div class="feature lP" id="tumblr-group">
-					<div class="heading bS">
-						{text:Group Heading}
-					</div>
-					<ul class="members">
+				<div class="feature" id="tumblr-group">
+					<h3>
+						<small>
+							{text:Group Heading}
+						</small>
+					</h3>
+					<table class="members">
+						<tbody>
 						{block:GroupMember}
-						<li class="member">
-							<div class="thumb">
-								<a href="{GroupMemberURL}" target="_blank" title="{GroupMemberTitle}"> <img alt="{GroupMemberTitle}" height="48" src="{GroupMemberPortraitURL-48}" width="48" /> </a>
-							</div>
-							<div class="name">
-								<span>{GroupMemberName}</span>
-								<a href="{GroupMemberURL}" target="_blank" title="{GroupMemberTitle}">{GroupMemberTitle}</a>
-							</div>
-						</li>
+							<tr>
+								<td class="member">
+									<div class="thumb">
+										<a href="{GroupMemberURL}" target="_blank" title="{GroupMemberTitle}">
+											<img alt="{GroupMemberTitle}" height="48" src="{GroupMemberPortraitURL-48}" width="48" />
+										</a>
+									</div>
+								</td>
+								<td>
+									<div class="name">
+										<div class="name-name">
+											{GroupMemberName}
+										</div>
+										<div class="name-title">
+											<a href="{GroupMemberURL}" target="_blank" title="{GroupMemberTitle}">{GroupMemberTitle}</a>											
+										</div>
+									</div>
+								</td>
+							</tr>
 						{/block:GroupMember}
-					</ul>
+						</tbody>
+					</table>
 				</div>
 				{/block:GroupMembers}
 				{/block:IfShowGroupFeatures}
 				{block:IfFeaturedTag}
 				<div class="feature lP" id="tumblr-featured">
-					<div class="heading bS">
+					<h3>
+						<small>
 						{text:Featured Heading}
-					</div>
+						</small>
+					</h3>
 				</div>
 				{/block:IfFeaturedTag}
 				{block:IfTwitterUsername}
-				<div class="feature lP" id="tumblr-tweets">
-					<div class="heading bS">
-						<span>Recent Tweets</span>
-						<a href="http://twitter.com/{text:Twitter Username}" title="@{text:Twitter Username}">@{text:Twitter Username}</a>
-					</div>
+				<div class="feature" id="tumblr-tweets">
+					<h3>
+						<small>
+							Recent Tweets <a href="http://twitter.com/{text:Twitter Username}" title="@{text:Twitter Username}">@{text:Twitter Username}</a>
+						</small>
+					</h3>
 				</div>
 				{/block:IfTwitterUsername}
 				{block:IfShowLikes}
 				{block:Likes}
 				<div class="feature" id="tumblr-likes">
-					<div class="heading bS">
-						{text:Likes Heading}
-					</div>
+					<h3>
+						<small>
+							{text:Likes Heading}
+						</small>
+					</h3>
 					{Likes limit="5" summarize="150" width="283"}
 				</div>
 				{/block:Likes}
@@ -717,9 +687,18 @@
 				{block:IfShowBlogsIFollow}
 				{block:Following}
 				<div class="feature" id="tumblr-following">
-					<div class="heading bS">
-						{text:Following Heading}
-					</div>
+					<h3>
+						<small>
+							{text:Following Heading}
+						</small>
+					</h3>
+					<ul class="inline-list">
+						{block:Followed}
+	            		<li>
+	                		<a href="{FollowedURL}" title="{FollowedTitle}"><img alt="{FollowedName}" src="{FollowedPortraitURL-30}"/></a>
+	            		</li>
+	        			{/block:Followed}
+	        		</ul>
 				</div>
 				{/block:Following}
 				{/block:IfShowBlogsIFollow}
@@ -759,5 +738,6 @@
 				$(document).foundationTopBar();
 			});
 		</script>
+    	<style>@media (touch-enabled),(-webkit-touch-enabled),(-moz-touch-enabled),(-o-touch-enabled),(-ms-touch-enabled),(modernizr){#touch{top:9px;position:absolute}}</style>
 	</body>
 </html>
